@@ -27,9 +27,9 @@ class Dcmtk < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "-DBUILD_SHARED_LIBS=OFF", *std_cmake_args, ".."
+      system "cmake", "-DBUILD_SHARED_LIBS=OFF", *std_cmake_args, "."
       system "make", "install"
-      system "cmake", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args, ".."
+      system "cmake", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args, "."
       system "make", "install"
 
       inreplace lib/"cmake/dcmtk/DCMTKConfig.cmake", Superenv.shims_path, ""
